@@ -53,12 +53,12 @@ app.get("/:id", function(req, res) {
     }
 
     console.log(data);
-    res.render("single-quote", data[0]);
+    res.render("index", data[0]);
   });
 });
 
-app.post("/api/quotes", function(req, res) {
-  connection.query("INSERT INTO quotes (author, quote) VALUES (?, ?)", [req.body.author, req.body.quote], function(
+app.post("/api/burgers", function(req, res) {
+  connection.query("INSERT INTO burgers (title) VALUES (?, ?)", [req.body.burger], function(
     err,
     result
   ) {
