@@ -1,0 +1,25 @@
+{
+  "name": "exercise1_feel_state",
+  "version": "1.0.0",
+  "description": "https://unchar.bootcampcontent.com/The-Coding-Bootcamp/UNC-CHA-FSF-FT-10-2019-U-C/tree/master/01-Class-Content/13-MVC/02-Homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thoughtsinflight/NodeExpressHandlebars.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thoughtsinflight/NodeExpressHandlebars/issues"
+  },
+  "homepage": "https://github.com/thoughtsinflight/NodeExpressHandlebars#readme"
+}
