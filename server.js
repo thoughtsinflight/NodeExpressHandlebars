@@ -56,7 +56,7 @@ app.get("/:id", function(req, res) {
 });
 
 app.post("/api/burgers", function(req, res) {
-  connection.query("INSERT INTO burgers (title) VALUES (?, ?)", [req.body.burger], function(
+  connection.query("INSERT INTO burgers (burger) VALUES (?)", [req.body.burger], function(
     err,
     result
   ) {
@@ -85,8 +85,8 @@ app.delete("/api/burgers/:id", function(req, res) {
 
 app.put("/api/burgers/:id", function(req, res) {
   connection.query(
-    "UPDATE burgers SET title = ? WHERE id = ?",
-    [req.body.burger, req.params.id],
+    "UPDATE burgers SET devoured = ? WHERE id = ?",
+    [false, req.params.id],
     function(err, result) {
       if (err) {
         return res.status(500).end();
