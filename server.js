@@ -34,7 +34,6 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-// Serve index.handlebars to the root route.
 app.get("/", function(req, res) {
   connection.query("SELECT * FROM burgers;", function(err, data) {
     if (err) {
@@ -45,7 +44,6 @@ app.get("/", function(req, res) {
   });
 });
 
-// Show the user the individual quote and the form to update the quote.
 app.get("/:id", function(req, res) {
   connection.query("SELECT * FROM burgers where id = ?", [req.params.id], function(err, data) {
     if (err) {
@@ -63,17 +61,15 @@ app.post("/api/burgers", function(req, res) {
     result
   ) {
     if (err) {
-      // If an error occurred, send a generic server failure
       return res.status(500).end();
     }
 
-    // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
-app.delete("/api/quotes/:id", function(req, res) {
-  connection.query("DELETE FROM quotes WHERE id = ?", [req.params.id], function(err, result) {
+app.delete("/api/burgers/:id", function(req, res) {
+  connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function(err, result) {
     if (err) {
       // If an error occurred, send a generic server failure
       return res.status(500).end();
@@ -87,18 +83,15 @@ app.delete("/api/quotes/:id", function(req, res) {
   });
 });
 
-// Update a quote by an id and then redirect to the root route.
-app.put("/api/quotes/:id", function(req, res) {
+app.put("/api/burgers/:id", function(req, res) {
   connection.query(
-    "UPDATE quotes SET author = ?, quote = ? WHERE id = ?",
-    [req.body.author, req.body.quote, req.params.id],
+    "UPDATE burgers SET title = ? WHERE id = ?",
+    [req.body.burger, req.params.id],
     function(err, result) {
       if (err) {
-        // If an error occurred, send a generic server failure
         return res.status(500).end();
       }
       else if (result.changedRows === 0) {
-        // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();
       }
       res.status(200).end();
@@ -107,8 +100,6 @@ app.put("/api/quotes/:id", function(req, res) {
   );
 });
 
-// Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
-  // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
 });
