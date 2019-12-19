@@ -18,13 +18,7 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var connection = mysql.createConnection({
-  host: "localhost" || "mysql://i2j2gh0a1ekzpf8g:yf3pw3xfik3549vd@s3lkt7lynu0uthj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/sdq1oxzb35rzs1vn",
-  port: 3306,
-  user: "root",
-  password: "rootroot",
-  database: "burgers_db"
-});
+var connection = mysql.createConnection(process.env.JAWSDB_URL);
 
 connection.connect(function(err) {
   if (err) {
