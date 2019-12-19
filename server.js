@@ -86,9 +86,10 @@ app.delete("/api/burgers/:id", function(req, res) {
 app.put("/api/burgers/:id", function(req, res) {
   connection.query(
     "UPDATE burgers SET devoured = ? WHERE id = ?",
-    [false, req.params.id],
+    [req.body.devoured, req.params.id],
     function(err, result) {
       if (err) {
+        console.log(err)
         return res.status(500).end();
       }
       else if (result.changedRows === 0) {

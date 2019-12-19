@@ -2,14 +2,23 @@
 
 <p>Eat-Da-Burger</p>
 
-<!-- Pass in data from server.js -->
+<!-- Yet to be Devoured -->
 <ul>
   {{#each burger}}
-  	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label"></span> {{this.burger}}</p>
-      <button data-id="{{this.id}}" class="devourburger">Devour</button>
-  	</li>
+  {{#if devoured}}
+  <h4>Devoured</h4>
+  <li>
+    <p><span class="label">ID:</span> {{this.id}}</p>
+    <p><span class="label"></span> {{this.burger}}</p>
+  </li>
+  {{else}}
+  <h4>Yet to be Devoured</h4>
+  <li>
+    <p><span class="label">ID:</span> {{this.id}}</p>
+    <p><span class="label"></span> {{this.burger}}</p>
+    <button data-id="{{this.id}}" class="devourburger">Devour</button>
+  </li>
+  {{/if}}
   {{/each}}
 </ul>
 <!-- Write an if statement that displays a devoured burger, forEach -->
