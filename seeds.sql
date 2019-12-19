@@ -1,13 +1,13 @@
-INSERT INTO burgers (title) VALUES ("Beef");
+INSERT INTO burgers (title, devoured) VALUES ("Beef", false);
 
-INSERT INTO burgers (title) VALUES ("Jalapeno");
+INSERT INTO burgers (title, devoured) VALUES ("Jalapeno", true);
 
-INSERT INTO burgers (title) VALUES ("Lettuce");
+INSERT INTO burgers (title, devoured) VALUES ("Lettuce", false);
 
-INSERT INTO burgers (title) VALUES ("Ramen");
+INSERT INTO burgers (title, devoured) VALUES ("Ramen", true);
 
-INSERT INTO burgers (title) VALUES ("Ranch");
+INSERT INTO burgers (title, devoured) VALUES ("Ranch", true);
 
-INSERT INTO burgers (title) VALUES ("Chicken");
+INSERT INTO burgers (title, devoured) VALUES ("Chicken", false);
 
-INSERT INTO burgers (title) VALUES ("Bacon");
+INSERT INTO burgers (title, devoured) VALUES ("Bacon", true);

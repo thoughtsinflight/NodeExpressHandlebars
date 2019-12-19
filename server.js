@@ -40,7 +40,7 @@ app.get("/", function(req, res) {
       return res.status(500).end();
     }
 
-    res.render("index", { quotes: data });
+    res.render("index", { burger: data });
   });
 });
 
